@@ -13,10 +13,7 @@ public final class Problem1 {
     public Problem1() {
     }
 
-    /**
-     * 
-     * @return sum The sum of all the multiples of 3 or 5 below 1000.
-     */
+    //answer is 233168
     public static int problem1() {
         int sum = 0;
         for (int i = 3; i < 1000; ++i) {
