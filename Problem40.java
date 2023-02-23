@@ -1,11 +1,16 @@
 package com.mooip.code.projectEuler;
 
+/**
+ * Champernowne's constant. 
+ *
+ * @author masterofoneinchpunch
+ * @see <a href="https://projecteuler.net/problem=40">Champernowne's constant</a>
+ */
 public final class Problem40 {
 
     public Problem40() {
     }
 
-    //https://projecteuler.net/problem=40
     //answer is 210
     public static long problem40() {   
         StringBuilder sb = new StringBuilder();
