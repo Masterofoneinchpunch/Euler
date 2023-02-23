@@ -32,7 +32,7 @@ public final class Problem8 {
     public Problem8() {
     }
 
-    // answer is 23514624000
+    //answer is 23514624000
     public static long problemEight() {
         long maxProduct = 0;
         
