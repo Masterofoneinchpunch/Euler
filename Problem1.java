@@ -9,7 +9,6 @@ package com.mooip.code.projectEuler;
  * @see <a href="https://projecteuler.net/problem=1">Multiples of 3 or 5</a>
  */
 public final class Problem1 {
-
     public Problem1() {
     }
 
@@ -27,6 +26,5 @@ public final class Problem1 {
     
     public static void main(String[] args){
         System.out.println(problem1());
-    }
-    
+    }    
 }
