@@ -1,6 +1,6 @@
 package com.mooip.code.projectEuler;
 
-public class Problem40 {
+public final class Problem40 {
 
     public Problem40() {
     }
