@@ -8,8 +8,7 @@ import com.mooip.util.MathUtil;
  * @author masterofoneinchpunch
  * @see <a href="https://projecteuler.net/problem=7">10001st prime</a>
  */
-public class Problem7 {
-
+public final class Problem7 {
     public Problem7() {
     }
 
@@ -36,8 +35,7 @@ public class Problem7 {
     
     public static void main(String[] args){
         System.out.println(generatePrime(10001));
-    }
-    
+    }   
 }
 
 
