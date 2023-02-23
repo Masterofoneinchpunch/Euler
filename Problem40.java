@@ -7,7 +7,6 @@ package com.mooip.code.projectEuler;
  * @see <a href="https://projecteuler.net/problem=40">Champernowne's constant</a>
  */
 public final class Problem40 {
-
     public Problem40() {
     }
 
@@ -28,7 +27,6 @@ public final class Problem40 {
     
     public static void main(String[] args){
         System.out.println(problem40());
-    }
-   
+    }   
 }
 
