@@ -3,6 +3,12 @@ package com.mooip.code.projectEuler;
 import com.mooip.util.MathUtil;
 import com.mooip.util.StringUtil;
 
+/**
+ * Truncatable primes.
+ * 
+ * @author masterofoneinchpunch
+ * @see <a href="https://projecteuler.net/problem=37">Truncatable primes</a>
+ */
 public final class Problem37 {
     public Problem37() {
     }

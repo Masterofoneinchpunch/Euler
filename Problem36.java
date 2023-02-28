@@ -4,10 +4,10 @@ import com.mooip.util.StringUtil;
 import java.math.BigInteger;
 
 /**
- * Circular primes.
+ * Double-base palindromes.
  * 
  * @author masterofoneinchpunch
- * @see <a href="https://projecteuler.net/problem=35">Circular primes</a>
+ * @see <a href="https://projecteuler.net/problem=36">Double-base palindromes</a>
  */
 public final class Problem36 {
     public Problem36() {
