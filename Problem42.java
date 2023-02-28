@@ -1,5 +1,6 @@
 package com.mooip.code.projectEuler;
 
+import com.mooip.util.MathUtil;
 import com.mooip.util.StringUtil;
 import java.io.BufferedReader;
 import java.io.File;
@@ -27,9 +28,7 @@ public final class Problem42 {
         Set<Integer> triangleNumbersInit = new TreeSet<Integer>();
         
         for (int i = 1; i <= 43; i++) {
-            int triangleNumber = (int) ((i + 1) * ((double)i/2));
-            //System.out.println(triangleNumber);
-            triangleNumbersInit.add(triangleNumber);
+            triangleNumbersInit.add(MathUtil.triangleNumber(i));
         }
         
         return triangleNumbersInit;
