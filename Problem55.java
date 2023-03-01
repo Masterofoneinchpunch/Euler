@@ -9,7 +9,7 @@ import java.math.BigInteger;
  * @author masterofoneinchpunch
  * @see <a href="https://projecteuler.net/problem=55">Lychrel numbers</a>
  */
-public class Problem55 {
+public final class Problem55 {
     public Problem55() {
     }
 
