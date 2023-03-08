@@ -22,14 +22,24 @@ public final class Problem79 {
     }
 
     //answer is 73162890
+    /**
+     * The algorithm here is to pass through and grab each a character that is in the beginning,
+     * but not in anything after.  If you want to make this quicker you can do the same thing for
+     * the last character (but this solution was solved almost instantly).  This solution is
+     * predicated on there only being one character used (this is not mentioned in the problem).
+     * This like the 5-gon problem (problem 68 {@link com.mooip.code.projectEuler.Problem68}) I was
+     * able to solve first by hand before I coded it.
+     * 
+     * @return passcode The minimum passcode.
+     */
     public static String problem79() {
         List<Character> passcode = new ArrayList<Character>();
         List<String> passcodes = new ArrayList<String>();        
         Set<Character> notFirst = new HashSet<Character>();
         Set<Character> first = new HashSet<Character>();
         
-        //you could avoid figuring out the first (you can also figure out the last here),
-        //by not checking for first here, but it saves one interation doing this.
+        //you could avoid figuring out the first character here (you can also figure out the last here),
+        //but it saves one interation doing this.
         try {
             final String fullPathName = "C:\\shawns" + File.separatorChar + "p079_keylog.txt";
             BufferedReader reader = IOUtil.getBufferedFileReader(fullPathName);
@@ -51,6 +61,10 @@ public final class Problem79 {
         notFirst.clear();
         first.clear();        
         
+        /* 
+           Keep looking for the only character (after considering the ones chosen already) that
+           does not have any characters before it.
+        */
         while (true) {    
             for (String passcodeStr : passcodes) {
                 Character firstCharacter = null;
