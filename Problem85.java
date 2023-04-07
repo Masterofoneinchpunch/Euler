@@ -20,17 +20,17 @@ public final class Problem85 {
         int lMinDiff = 0;
         int hMinDiff = 0;
         for (int i = 1; i < 54; i++) {
-            int sideL = MathUtil.sumSequence(i);
-            for (int j = i; j < 2001; j++) {
-                int sideH = MathUtil.sumSequence(j);
-                int totalRectangles = sideL * sideH;
+            final int sideL = MathUtil.sumSequence(i);
+            //always have j bigger or equal to i so no double counts; you do not have to go
+            // higher than 2001 (and that is only for the first value
+            for (int j = i; j < 2001; j++) { 
+                final int sideH = MathUtil.sumSequence(j);
+                final int totalRectangles = sideL * sideH;
                 
                 if (totalRectangles > NEAREST_TO) {
                     final int rightBefore = (sideL * MathUtil.sumSequence(j-1));
                     final int beforeDiff = NEAREST_TO - rightBefore;
                     if (beforeDiff < minDiff) {
-                        //System.out.println("new min diff: " + beforeDiff);
-                        //System.out.println("for " + i + " " + (j-1));
                         minDiff = beforeDiff;
                         lMinDiff = i;
                         hMinDiff = j-1;
@@ -38,8 +38,6 @@ public final class Problem85 {
                     
                     final int afterDiff = NEAREST_TO - rightBefore;
                     if (afterDiff < minDiff) {
-                        //System.out.println("new min diff (after): " + afterDiff);
-                        //System.out.println("for " + i + " " + j);
                         minDiff = afterDiff;
                         lMinDiff = i;
                         hMinDiff = j;
@@ -54,7 +52,11 @@ public final class Problem85 {
     }
 
     public static void main(String[] args){
+        long startTime = System.nanoTime();
         System.out.println(Problem85());
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println(duration / 1000000);
     }   
 }
 
