@@ -44,6 +44,54 @@ public final class Problem84 {
     public Problem84() {
     }
 
+    private static int chanceLocation(DeckOfCards chance, int location) {
+        final int chanceCard = chance.getNextCard();
+        switch (chanceCard) {
+            case 0:
+                location = GO;
+                break;
+            case 1:
+                location = JAIL;
+                break;
+            case 2:
+                location = C1;                        
+                break;
+            case 3:
+                location = E3;
+                break;
+            case 4:
+                location = H2;
+                break;
+            case 5:
+                location = R1;
+                break;
+            case 6:
+            case 7:
+                switch (location) {
+                    case CH1:
+                        location = R2;
+                        break;
+                    case CH2:
+                        location = R3;
+                        break;
+                    case CH3:
+                        location = R1;
+                        break;
+                }
+                break;
+            case 8:
+                location = (location == CH1 || location == CH3) ? U1 : U2;
+                break;
+            case 9:
+                location -= 3; //go back three squares
+                break;
+            default:
+                break;
+        }
+        
+        return location;
+    }
+    
     //answer is 101524
     //note with a six-sided dice I was getting different results with the third value 
     //between GO and D3.  The four-sided dice gave consistent results.
@@ -53,8 +101,8 @@ public final class Problem84 {
         int[] boardSquares = new int[NUM_SQUARES];
         Random random = new Random();
         int location = 0;
-        DeckOfCards chance = new DeckOfCards(CHANCE_CARDS);
-        DeckOfCards communityChest = new DeckOfCards(COMMUNITY_CHEST_CARDS);
+        DeckOfCards chanceCards = new DeckOfCards(CHANCE_CARDS);
+        DeckOfCards communityChestCards = new DeckOfCards(COMMUNITY_CHEST_CARDS);
                 
         for (int i = 0; i < MAX_LOOPS; i++) {
             final int dice1Roll = random.nextInt(DICE_SIZE) + 1;
@@ -76,52 +124,10 @@ public final class Problem84 {
             }
             
             if (location == CH1 || location == CH2 || location == CH3) {
-                final int chanceCard = chance.getNextCard();
-                switch (chanceCard) {
-                    case 0:
-                        location = GO;
-                        break;
-                    case 1:
-                        location = JAIL;
-                        break;
-                    case 2:
-                        location = C1;                        
-                        break;
-                    case 3:
-                        location = E3;
-                        break;
-                    case 4:
-                        location = H2;
-                        break;
-                    case 5:
-                        location = R1;
-                        break;
-                    case 6:
-                    case 7:
-                        switch (location) {
-                            case CH1:
-                                location = R2;
-                                break;
-                            case CH2:
-                                location = R3;
-                                break;
-                            case CH3:
-                                location = R1;
-                                break;
-                        }
-                        break;
-                    case 8:
-                        location = (location == CH1 || location == CH3) ? U1 : U2;
-                        break;
-                    case 9:
-                        location -= 3; //go back three squares
-                        break;
-                    default:
-                        break;
-                }
+                location = chanceLocation(chanceCards, location);
             }
             if (location == CC1 || location == CC2 || location == CC3) {
-                final int communityChessCard = communityChest.getNextCard();
+                final int communityChessCard = communityChestCards.getNextCard();
                 if (communityChessCard == 0) {
                     location = GO;
                 } else if (communityChessCard == 1) {
