@@ -69,16 +69,7 @@ public final class Problem93 {
                 
                 compose(digits, ops, new String[] {"","","","","",""}, integers);
                 
-                if (ops[0] == '+' && ops[1] == '+' && ops[2] == '+') {
-                    continue;
-                }
-                if (ops[0] == '*' && ops[1] == '*' && ops[2] == '*') {
-                    continue;
-                }
-                if (ops[0] == '-' && ops[1] == '-' && ops[2] == '-') {
-                    continue;
-                }
-                if (ops[0] == '/' && ops[1] == '/' && ops[2] == '/') {
+                if (ops[0] == ops[1] && ops[1] ==  ops[2]) {
                     continue;
                 }
                 
@@ -118,7 +109,7 @@ public final class Problem93 {
         sb.append(digits[2]).append(parens[4]).append(ops[2]).append("");
         sb.append(digits[3]).append(parens[5]);
         //System.out.println("compose: " + sb);
-        Double result = MathUtil.evaluate(sb.toString());
+        Double result = MathUtil.eval(sb.toString());
         if ((result % 1) == 0 && result > 0) {
             integers.add(result.intValue());
         }
